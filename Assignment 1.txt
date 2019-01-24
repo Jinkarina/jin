@@ -1,37 +1,49 @@
-Select City,StateProvinceName,EnglishCountryRegionName
+--This is the first assignment. We are writing some introductry quires using the database named: AdventureWorksDW2012.--
+
+--Find the unique list of cities, states and country used in this database. (use the English country)--
+Select Distinct City,StateProvinceName,EnglishCountryRegionName
 From Geography;
 
+--Find the list all the customers Last, middle and First name by last name ascending order.--
 Select LastName, MiddleName,FirstName
 From Customer 
 Order By LastName ASC;
 
+--Find the gender, marital status and the birth date of the first 10 customers. --
 Select Top 10 Gender, MaritalStatus,BirthDate
 From Customer;
 
+--Find the product key, Total product cost and the sales amount of the internet sales where the sales amount is grater than or equal to 3500 $.--
 Select ProductKey,TotalProductCost,SalesAmount
 From FactInternetSales
 Where SalesAmount >=3500;
 
+--Find the unique English product name where its class are not NULL.--
 Select EnglishProductName
 From Product
 Where Class <> NULL;
 
+--Find the product key, the units in and units out when its unit costs are between 8$ and 10$.--
 Select ProductKey,UnitsIn,UnitsOut
 From FactProductInventory
 Where UnitCost between 8 and 10;
 
+--Find the English promotion name and promotion type that its maximum quantity is not 100.--
 Select EnglishPromotionName,EnglishPromotionType
 From Promotion
 Where MaxQty !> 100
 
+--Find the employee key, the calendar quarter and calendar year of those whose sales amount quota are 1000$, 10000$, or 100000$.--
 Select EmployeeKey, CalendarQuarter, CalendarYear
 From FactSalesQuota
 Where SalesAmountQuota =1000 or SalesAmountQuota=10000 or SalesAmountQuota=100000;
 
+--Find the employee key, the order quantity, the unit price and the sales Amount of the products that have tax amount less than 20$ and the Total product cost less than 20 $.--
 Select EmployeeKey, OrderQuantity,UnitPrice,SalesAmount
 From FactResellerSales
 Where TaxAmt <20 and TotalProductCost<20;
 
+--Find the list of all the last name, middle name and first name of employees by first name descending order where its middle name is not NULL.--
 Select LastName, MiddleName, FirstName
 From Employee
 Where MiddleName Is not NULL
