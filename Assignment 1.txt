@@ -1,0 +1,38 @@
+Select City,StateProvinceName,EnglishCountryRegionName
+From Geography;
+
+Select LastName, MiddleName,FirstName
+From Customer 
+Order By LastName ASC;
+
+Select Top 10 Gender, MaritalStatus,BirthDate
+From Customer;
+
+Select ProductKey,TotalProductCost,SalesAmount
+From FactInternetSales
+Where SalesAmount >=3500;
+
+Select EnglishProductName
+From Product
+Where Class <> NULL;
+
+Select ProductKey,UnitsIn,UnitsOut
+From FactProductInventory
+Where UnitCost between 8 and 10;
+
+Select EnglishPromotionName,EnglishPromotionType
+From Promotion
+Where MaxQty !> 100
+
+Select EmployeeKey, CalendarQuarter, CalendarYear
+From FactSalesQuota
+Where SalesAmountQuota =1000 or SalesAmountQuota=10000 or SalesAmountQuota=100000;
+
+Select EmployeeKey, OrderQuantity,UnitPrice,SalesAmount
+From FactResellerSales
+Where TaxAmt <20 and TotalProductCost<20;
+
+Select LastName, MiddleName, FirstName
+From Employee
+Where MiddleName Is not NULL
+Order By FirstName ASC 
