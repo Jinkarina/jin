@@ -1,0 +1,52 @@
+*This is the second assignment
+
+We are wrting some introductry quires using the database named: AdventureWorksDW2012.*/
+
+--Find the list of Top 10 employee first and last names that their last names start with either a, j or p--
+
+Select Top 10 FirstName, LastName
+
+From Employee
+
+Where LastName Like '[ajp]%';
+
+--Find the list of all employee first and last name, thier base rate and title where thier base rate is greater than or equal to 45$ and thier job title is not Manager and Order them by lasr name descending order(Z to A)--
+
+Select FirstName,LastName,BaseRate,Title
+
+From Employee
+
+Where BaseRate >=45
+
+and Title like '[^Manager]%'
+
+Order By LastName DESC;
+
+--Create a new field called employee_info where this field has the following format: employee first name - employee last name (employee job title), Department name--
+
+Select FirstName+'-' +LastName+ '('+ (Title) +'),' + DepartmentName as employee_info
+
+From Employee;
+
+--Find the first and last name of all employees, their title and their cost for sick and Vacation value (a new filed describe next) for only the employee with title that start with the s letter.--
+
+Select FirstName,LastName,Title,BaseRate*(SickLeaveHours+VacationHours)
+
+as costForSickandVacation
+
+From Employee
+
+Where Title Like '[s]%';
+
+--Find the last and first name of employees, thier gender and title where their title start with the letter p and they are not Manager and order this results with the vacation hours decreasing order.--
+
+Select LastName, FirstName, Gender, Title
+
+From Employee
+
+Where Title Like '[p]%'
+
+And Title Like '[^Manager]%'
+
+Order By VacationHours DESC;
+
